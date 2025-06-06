@@ -1,7 +1,7 @@
 # Holy Bio MCP: A Unified MCP Framework for Bioinformatics Research
 
 <div align="center">
-  <img src="https://github.com/longevity-genie/holy-bio-mcp/blob/main/assets/holy-bio-logo.png?raw=true" alt="Holy Bio MCP Logo" width="200"/>
+  <img src="https://github.com/longevity-genie/holy-bio-mcp/blob/main/images/holy-bio-mcp-logo.jpg?raw=true" alt="Holy Bio MCP Logo" width="200"/>
   
   [![MCP](https://img.shields.io/badge/MCP-Model%20Context%20Protocol-blue)](https://modelcontextprotocol.io)
   [![Longevity](https://img.shields.io/badge/Focus-Longevity%20Research-green)](https://github.com/longevity-genie)
@@ -46,13 +46,12 @@ This framework unites the following specialized MCP servers. Each is a powerful 
 - **[synergy-age-mcp](https://github.com/longevity-genie/synergy-age-mcp)**: A database of synergistic and antagonistic genetic interactions in longevity from SynergyAge.
 - **[pharmacology-mcp](https://github.com/antonkulaga/pharmacology-mcp)**: Access to the Guide to PHARMACOLOGY database for drug, target, and ligand information.
 
----
-
 ## Server Capabilities & Example Questions
 
 Instead of just listing functions, here's a look at the kind of research questions you can answer with each server.
 
-### 1. 🧬 `biothings-mcp`
+<details>
+<summary><h3>1. 🧬 <code>biothings-mcp</code>: Foundational Biological Data</h3></summary>
 
 <div align="center"><img src="https://github.com/longevity-genie/biothings-mcp/raw/main/images/cursor_usage_example.jpg" alt="biothings-mcp usage example"/></div>
 
@@ -64,8 +63,10 @@ Wraps the BioThings.io APIs to provide foundational biological data.
 - "What is the molecular formula and structure of the compound 'aspirin'?"
 - "Download the protein FASTA sequence for UniProt ID P04637."
 - "What is the taxonomic lineage for *Mus musculus*?"
+</details>
 
-### 2. 🔬 `gget-mcp`
+<details>
+<summary><h3>2. 🔬 <code>gget-mcp</code>: Genomics & Sequence Analysis Toolkit</h3></summary>
 
 <div align="center"><img src="https://github.com/longevity-genie/gget-mcp/raw/main/images/screenshot_example.png" alt="gget-mcp usage example"/></div>
 
@@ -78,8 +79,10 @@ Provides a rich set of tools for sequence analysis, functional genomics, and str
 - "Find mutations in the COSMIC database for the *PIK3CA* gene."
 - "Perform a BLAST search with the DNA sequence 'ATGGCGCCCGAACAGGGAC' to identify its origin."
 - "Align multiple protein sequences to find conserved regions."
+</details>
 
-### 3. 🕰️ `opengenes-mcp`
+<details>
+<summary><h3>3. 🕰️ <code>opengenes-mcp</code>: Aging & Longevity Genetics</h3></summary>
 
 <div align="center"><img src="https://github.com/longevity-genie/opengenes-mcp/raw/main/images/open-genes-usage-chat.png" alt="opengenes-mcp usage example"/></div>
 
@@ -91,8 +94,10 @@ A queryable SQL database focused on the genetics of aging and longevity.
 - "Which hallmarks of aging are associated with the *KL* (Klotho) gene?"
 - "Are there any liver-specific interventions that increase lifespan in mice?"
 - "Find genes that are associated with both longevity in human studies and have lifespan-extending effects in model organisms."
+</details>
 
-### 4. 🔄 `synergy-age-mcp`
+<details>
+<summary><h3>4. 🔄 <code>synergy-age-mcp</code>: Synergistic Genetic Interactions</h3></summary>
 
 <div align="center"><img src="https://www.synergyage.info/static/curation/images/SynergyAgeFigs3.4.png" alt="synergy-age-mcp interaction types"/></div>
 
@@ -104,8 +109,10 @@ A specialized SQL database for synergistic, antagonistic, and additive genetic i
 - "How do insulin signaling pathway interventions compare between worms, flies, and mice?"
 - "Which genetic combinations show antagonistic interactions that reduce lifespan benefits?"
 - "How do caloric restriction mimetics interact with other longevity interventions?"
+</details>
 
-### 5. 💊 `pharmacology-mcp`
+<details>
+<summary><h3>5. 💊 <code>pharmacology-mcp</code>: Drug, Target & Ligand Data</h3></summary>
 
 A comprehensive, queryable resource for pharmacological data.
 
@@ -115,46 +122,45 @@ A comprehensive, queryable resource for pharmacological data.
 - "List all interactions for the ligand 'Imatinib' with their affinity data."
 - "Which diseases are associated with the target 'Tumor necrosis factor' (TNF)?"
 - "Search for all targets in the 'Voltage-gated ion channel' family."
+</details>
 
-## 🚀 Quick Start
+## 🚀 Getting Started: Unified Configuration
 
-### Prerequisites
+This repository provides unified configuration files that enable all the included servers at once. Here's how to get started:
 
-Install `uv` (a modern Python package manager):
+### Option 1: Automatic Setup with STDIO (Recommended)
 
-```bash
-# Download and install uv
-curl -LsSf https://astral.sh/uv/install.sh | sh
-```
+This is the simplest and most efficient way to use the framework. Your MCP client will do all the work.
 
-### Running Individual Servers
+1.  **Prerequisite**: Make sure you have `uv` installed. If not, it's a one-line command:
+    ```bash
+    curl -LsSf https://astral.sh/uv/install.sh | sh
+    ```
+2.  **Configure Your Client**: Point your MCP-compatible client (e.g., Cursor, Claude Desktop) to use the `mcp-config-stdio.json` file from this repository.
 
-Each MCP server can be run independently using `uvx`, which will automatically handle installation.
+**That's it!** You do not need to run any `uvx` commands manually. Your MCP client will automatically use `uvx` to launch the necessary servers in the background when a tool is called and manage them for you.
 
-```bash
-# BioThings API access
-uvx biothings-mcp
+### Option 2: Manual Setup with HTTP
 
-# Bioinformatics toolkit
-uvx gget-mcp
+This method is for advanced users who prefer to run each server as a persistent, long-running process.
 
-# Aging research database  
-uvx opengenes-mcp
+1.  **Prerequisite**: Install `uv` as shown above.
+2.  **Start Servers Manually**: For each server you want to use, open a separate terminal and run its `uvx` command with the `server` argument. The `mcp-config-http.json` file lists the required command and port for each server. For example:
+    ```bash
+    # Terminal 1
+    uvx biothings-mcp server --port 3001
 
-# Synergistic interventions
-uvx synergy-age-mcp
+    # Terminal 2
+    uvx gget-mcp server --port 3002
+    
+    # ...and so on for other servers.
+    ```
+3.  **Configure Your Client**: Point your MCP client to use the `mcp-config-http.json` file.
 
-# Pharmacology database
-uvx pharmacology-mcp
-```
+---
+### Configuration Video Tutorial
 
-Each server can be run in different modes (`stdio`, `server`, `sse`) for compatibility with various MCP clients.
-
-## 🔧 Configuring AI Clients
-
-Simply point your MCP-compatible AI client to the appropriate configuration file from the respective server's repository (e.g., `mcp-config-stdio.json`).
-
-For a visual guide on setting up clients like Cursor, watch our **[Configuration Tutorial Video](https://www.youtube.com/watch?v=Xo0sHWGJvE0)**. The principles shown apply to all servers in this framework.
+For a visual guide on setting up clients like Cursor with these configuration files, watch our **[Configuration Tutorial Video](https://www.youtube.com/watch?v=Xo0sHWGJvE0)**.
 
 ## 🤖 Integration Scenarios
 

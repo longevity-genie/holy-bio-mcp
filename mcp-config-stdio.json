@@ -1,0 +1,60 @@
+{
+  "$schema": "https://modelcontextprotocol.io/mcp-v1.schema.json",
+  "servers": [
+    {
+      "name": "biothings-mcp",
+      "connection": {
+        "type": "stdio",
+        "command": ["uvx", "biothings-mcp", "stdio"]
+      },
+      "info": {
+        "displayName": "BioThings MCP",
+        "description": "Access to BioThings.io APIs for genes, variants, chemicals, and taxonomy."
+      }
+    },
+    {
+      "name": "gget-mcp",
+      "connection": {
+        "type": "stdio",
+        "command": ["uvx", "gget-mcp", "stdio"]
+      },
+      "info": {
+        "displayName": "gget MCP",
+        "description": "Bioinformatics toolkit for genomics, sequence analysis, and functional enrichment."
+      }
+    },
+    {
+      "name": "opengenes-mcp",
+      "connection": {
+        "type": "stdio",
+        "command": ["uvx", "opengenes-mcp", "stdio"]
+      },
+      "info": {
+        "displayName": "OpenGenes MCP",
+        "description": "Queryable database for aging and longevity research."
+      }
+    },
+    {
+      "name": "synergy-age-mcp",
+      "connection": {
+        "type": "stdio",
+        "command": ["uvx", "synergy-age-mcp", "stdio"]
+      },
+      "info": {
+        "displayName": "SynergyAge MCP",
+        "description": "Database of synergistic and antagonistic genetic interactions in longevity."
+      }
+    },
+    {
+      "name": "pharmacology-mcp",
+      "connection": {
+        "type": "stdio",
+        "command": ["uvx", "pharmacology-mcp", "stdio"]
+      },
+      "info": {
+        "displayName": "Pharmacology MCP",
+        "description": "Access to the Guide to PHARMACOLOGY database."
+      }
+    }
+  ]
+} 

@@ -10,11 +10,13 @@
 
 ---
 
+__Developed during [Bio x AI Hackathon 2025](https://bio-x-ai-berlin.devfolio.co/overview)__
+
 ## 🎯 Our Mission
 
 Holy Bio MCP is a unified framework born during Bio x AI Hackathon-2025 from our practical experience building LLM-powered agents at the **Longevity Genie project**, **IBIMA (Institute for Biostatistics and Informatics in Medicine and Ageing Research)**, and the **Systems Biology of Aging Group**. Our goal is to make life easier for researchers by providing a suite of specialized, interoperable tools that seamlessly integrate into AI-driven IDEs (like Cursor, Windsurf), chat clients (like Anthropic's Claude Desktop), and serve as foundational building blocks for complex agentic workflows (using  ElizaOS, Just-Agents, AutoGen, etc.).
 
-This project aggregates several powerful, standalone MCP servers into a single, cohesive ecosystem for advanced bioinformatics and longevity research.
+This project aggregates several powerful, standalone MCP servers into a single, cohesive ecosystem for advanced bioinformatics and longevity research, **including a native ElizaOS plugin** for building autonomous research agents.
 
 ## What is the Model Context Protocol (MCP)?
 
@@ -36,10 +38,14 @@ Here's a real conversation (that you can easily reproduce yourself as all MCP-es
 
 ---
 
-## 🛠️ Included MCP Servers
+## 🛠️ Included MCP Servers & Integration Tools
 
-This framework unites the following specialized MCP servers. Each is a powerful tool on its own, but together they form a comprehensive research platform.
+This framework unites the following specialized MCP servers and integration tools. Each is a powerful tool on its own, but together they form a comprehensive research platform.
 
+### Integration Tools
+- **[biostratum-eliza](./biostratum-eliza)**: An ElizaOS plugin that enables autonomous AI agents to seamlessly connect to and utilize all the MCP servers below, providing a unified interface for building complex agentic workflows in bioinformatics research.
+
+### MCP Servers
 - **[gget-mcp](https://github.com/longevity-genie/gget-mcp)**: A powerful bioinformatics toolkit for genomics queries and analysis, wrapping the popular `gget` library.
 - **[opengenes-mcp](https://github.com/longevity-genie/opengenes-mcp)**: A queryable database for aging and longevity research from the OpenGenes project.
 - **[synergy-age-mcp](https://github.com/longevity-genie/synergy-age-mcp)**: A database of synergistic and antagonistic genetic interactions in longevity from SynergyAge.
@@ -166,7 +172,44 @@ For a visual guide on setting up clients like Cursor with these configuration fi
 
 - **Interactive Research (Chat-based)**: Use with AI assistants like Claude for exploratory research.
 - **AI-Enhanced Development (IDE Integration)**: Integrate with Cursor or Windsurf to access biomedical data and generate analysis scripts while coding.
-- **Agentic Workflows (Automated Research)**: Build autonomous research agents using frameworks like AutoGen or ElizaOS.
+- **Agentic Workflows (Automated Research)**: Build autonomous research agents using frameworks like AutoGen or - **ElizaOS with our biostratum plugin** for seamless multi-server integration.
+
+### ElizaOS Integration with Biostratum Plugin
+
+Our **biostratum-eliza** plugin provides native ElizaOS integration, allowing you to create sophisticated AI agents that can:
+
+- **Automatically connect** to all Holy Bio MCP servers simultaneously
+- **Intelligently route** research queries to the most appropriate data sources
+- **Combine insights** from multiple biological databases in a single conversation
+- **Execute complex workflows** like finding longevity genes, analyzing their variants, and identifying drug targets
+
+**Quick Start with ElizaOS:**
+```bash
+# Install the plugin
+elizaos plugins add @longevity-genie/biostratum-mcp-plugin
+
+# Start your bio-research agent
+elizaos agent start --path bio-gagarin.json
+```
+
+The plugin supports simplified configuration for all biostratum servers:
+```json
+{
+  "name": "Bio Research Agent",
+  "plugins": ["@longevity-genie/biostratum-mcp-plugin"],
+  "settings": {
+    "biostratum": {
+      "biothings": {},
+      "opengenes": {},
+      "gget": {},
+      "pharmacology": {},
+      "synergy-age": {}
+    }
+  }
+}
+```
+
+**Total Available Tools**: 51+ specialized bioinformatics functions across all servers, automatically available to your agent.
 
 ## 🏗️ Development & Contributing
 

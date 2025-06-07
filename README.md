@@ -40,10 +40,10 @@ Here's a real conversation (that you can easily reproduce yourself as all MCP-es
 
 This framework unites the following specialized MCP servers. Each is a powerful tool on its own, but together they form a comprehensive research platform.
 
-- **[biothings-mcp](https://github.com/longevity-genie/biothings-mcp)**: Access to BioThings.io APIs for comprehensive gene, variant, chemical, and taxonomic data.
 - **[gget-mcp](https://github.com/longevity-genie/gget-mcp)**: A powerful bioinformatics toolkit for genomics queries and analysis, wrapping the popular `gget` library.
 - **[opengenes-mcp](https://github.com/longevity-genie/opengenes-mcp)**: A queryable database for aging and longevity research from the OpenGenes project.
 - **[synergy-age-mcp](https://github.com/longevity-genie/synergy-age-mcp)**: A database of synergistic and antagonistic genetic interactions in longevity from SynergyAge.
+- **[biothings-mcp](https://github.com/longevity-genie/biothings-mcp)**: Access to BioThings.io APIs for comprehensive gene, variant, chemical, and taxonomic data.
 - **[pharmacology-mcp](https://github.com/antonkulaga/pharmacology-mcp)**: Access to the Guide to PHARMACOLOGY database for drug, target, and ligand information.
 
 ## Server Capabilities & Example Questions
@@ -51,22 +51,7 @@ This framework unites the following specialized MCP servers. Each is a powerful 
 Instead of just listing functions, here's a look at the kind of research questions you can answer with each server.
 
 <details>
-<summary><h3>1. 🧬 <code>biothings-mcp</code>: Foundational Biological Data</h3></summary>
-
-<div align="center"><img src="https://github.com/longevity-genie/biothings-mcp/raw/main/images/cursor_usage_example.jpg" alt="biothings-mcp usage example"/></div>
-
-Wraps the BioThings.io APIs to provide foundational biological data.
-
-**Example Research Questions:**
-- "What are the functions and pathways associated with the human gene *BRAF*?"
-- "Find all variants in the *EGFR* gene and provide their clinical significance from ClinVar."
-- "What is the molecular formula and structure of the compound 'aspirin'?"
-- "Download the protein FASTA sequence for UniProt ID P04637."
-- "What is the taxonomic lineage for *Mus musculus*?"
-</details>
-
-<details>
-<summary><h3>2. 🔬 <code>gget-mcp</code>: Genomics & Sequence Analysis Toolkit</h3></summary>
+<summary><h3>1. 🔬 <code>gget-mcp</code>: Genomics & Sequence Analysis Toolkit</h3></summary>
 
 <div align="center"><img src="https://github.com/longevity-genie/gget-mcp/raw/main/images/screenshot_example.png" alt="gget-mcp usage example"/></div>
 
@@ -82,7 +67,7 @@ Provides a rich set of tools for sequence analysis, functional genomics, and str
 </details>
 
 <details>
-<summary><h3>3. 🕰️ <code>opengenes-mcp</code>: Aging & Longevity Genetics</h3></summary>
+<summary><h3>2. 🕰️ <code>opengenes-mcp</code>: Aging & Longevity Genetics</h3></summary>
 
 <div align="center"><img src="https://github.com/longevity-genie/opengenes-mcp/raw/main/images/open-genes-usage-chat.png" alt="opengenes-mcp usage example"/></div>
 
@@ -97,11 +82,11 @@ A queryable SQL database focused on the genetics of aging and longevity.
 </details>
 
 <details>
-<summary><h3>4. 🔄 <code>synergy-age-mcp</code>: Synergistic Genetic Interactions</h3></summary>
+<summary><h3>3. 🔄 <code>synergy-age-mcp</code>: Synergistic & Antagonistic Genetic Interactions in Longevity</h3></summary>
 
-<div align="center"><img src="https://www.synergyage.info/static/curation/images/SynergyAgeFigs3.4.png" alt="synergy-age-mcp interaction types"/></div>
+<div align="center"><img src="https://github.com/longevity-genie/synergy-age-mcp/raw/main/images/synergy_example.jpg" alt="SynergyAge MCP Usage Example"/></div>
 
-A specialized SQL database for synergistic, antagonistic, and additive genetic interactions in longevity.
+A curated database containing experimentally validated data on genetic interventions affecting lifespan across multiple model organisms, focusing on synergistic, antagonistic, and epistatic interactions between genetic interventions.
 
 **Example Research Questions:**
 - "Which genetic interventions show the strongest synergistic effects in *C. elegans*?"
@@ -109,6 +94,21 @@ A specialized SQL database for synergistic, antagonistic, and additive genetic i
 - "How do insulin signaling pathway interventions compare between worms, flies, and mice?"
 - "Which genetic combinations show antagonistic interactions that reduce lifespan benefits?"
 - "How do caloric restriction mimetics interact with other longevity interventions?"
+</details>
+
+<details>
+<summary><h3>4. 🧬 <code>biothings-mcp</code>: Foundational Biological Data</h3></summary>
+
+<div align="center"><img src="https://github.com/longevity-genie/biothings-mcp/raw/main/images/cursor_usage_example.jpg" alt="biothings-mcp usage example"/></div>
+
+Wraps the BioThings.io APIs to provide foundational biological data.
+
+**Example Research Questions:**
+- "What are the functions and pathways associated with the human gene *BRAF*?"
+- "Find all variants in the *EGFR* gene and provide their clinical significance from ClinVar."
+- "What is the molecular formula and structure of the compound 'aspirin'?"
+- "Download the protein FASTA sequence for UniProt ID P04637."
+- "What is the taxonomic lineage for *Mus musculus*?"
 </details>
 
 <details>

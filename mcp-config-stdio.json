@@ -1,60 +1,37 @@
 {
-  "$schema": "https://modelcontextprotocol.io/mcp-v1.schema.json",
-  "servers": [
-    {
-      "name": "biothings-mcp",
-      "connection": {
-        "type": "stdio",
-        "command": ["uvx", "biothings-mcp", "stdio"]
-      },
-      "info": {
-        "displayName": "BioThings MCP",
-        "description": "Access to BioThings.io APIs for genes, variants, chemicals, and taxonomy."
+  "mcpServers": {
+    "biothings-mcp": {
+      "command": "uvx",
+      "args": ["--from", "biothings-mcp", "stdio"],
+      "env": {}
+    },
+    "gget-mcp": {
+      "command": "uvx",
+      "args": ["gget-mcp", "stdio"]
+    },
+    "synergy-age-mcp": {
+      "command": "uvx",
+      "args": ["synergy-age-mcp"],
+      "env": {
+        "MCP_PORT": "3002",
+        "MCP_HOST": "0.0.0.0",
+        "MCP_TRANSPORT": "stdio"
       }
     },
-    {
-      "name": "gget-mcp",
-      "connection": {
-        "type": "stdio",
-        "command": ["uvx", "gget-mcp", "stdio"]
-      },
-      "info": {
-        "displayName": "gget MCP",
-        "description": "Bioinformatics toolkit for genomics, sequence analysis, and functional enrichment."
+    "opengenes-mcp": {
+      "command": "uvx",
+      "args": ["opengenes-mcp"],
+      "env": {
+        "MCP_PORT": "3001",
+        "MCP_HOST": "0.0.0.0",
+        "MCP_TRANSPORT": "stdio"
       }
     },
-    {
-      "name": "opengenes-mcp",
-      "connection": {
-        "type": "stdio",
-        "command": ["uvx", "opengenes-mcp", "stdio"]
-      },
-      "info": {
-        "displayName": "OpenGenes MCP",
-        "description": "Queryable database for aging and longevity research."
-      }
-    },
-    {
-      "name": "synergy-age-mcp",
-      "connection": {
-        "type": "stdio",
-        "command": ["uvx", "synergy-age-mcp", "stdio"]
-      },
-      "info": {
-        "displayName": "SynergyAge MCP",
-        "description": "Database of synergistic and antagonistic genetic interactions in longevity."
-      }
-    },
-    {
-      "name": "pharmacology-mcp",
-      "connection": {
-        "type": "stdio",
-        "command": ["uvx", "pharmacology-mcp", "stdio"]
-      },
-      "info": {
-        "displayName": "Pharmacology MCP",
-        "description": "Access to the Guide to PHARMACOLOGY database."
-      }
+    "pharmacology-mcp": {
+      "command": "uvx",
+      "args": ["pharmacology-mcp", "server", "--port", "3001"],
+      "env": {}
     }
-  ]
+    
+  }
 } 

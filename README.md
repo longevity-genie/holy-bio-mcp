@@ -134,9 +134,45 @@ A comprehensive, queryable resource for pharmacological data.
 
 This repository provides unified configuration files that enable all the included servers at once. Here's how to get started:
 
-### Option 1: Automatic Setup with STDIO (Recommended)
+### Option 1: Copy-Paste Configuration (Quickest Start)
 
-This is the simplest and most efficient way to use the framework. Your MCP client will do all the work.
+For immediate use without cloning this repository, copy and paste this configuration directly into your MCP client:
+
+```json
+{
+  "mcpServers": {
+    "biothings-mcp": {
+      "command": "uvx",
+      "args": ["--from", "biothings-mcp", "stdio"],
+      "env": {}
+    },
+    "gget-mcp": {
+      "command": "uvx",
+      "args": ["gget-mcp", "stdio"],
+      "env": {}
+    },
+    "synergy-age-mcp": {
+      "command": "uvx",
+      "args": ["synergy-age-mcp", "stdio"],
+      "env": {}
+    },
+    "opengenes-mcp": {
+      "command": "uvx",
+      "args": ["opengenes-mcp", "stdio"],
+      "env": {}
+    },
+    "pharmacology-mcp": {
+      "command": "uvx",
+      "args": ["pharmacology-mcp", "stdio"],
+      "env": {}
+    }
+  }
+}
+```
+
+### Option 2: Automatic Setup with STDIO (Using Repository Files)
+
+This method uses the configuration files from this repository.
 
 1.  **Prerequisite**: Make sure you have `uv` installed. If not, it's a one-line command:
     ```bash
@@ -146,7 +182,7 @@ This is the simplest and most efficient way to use the framework. Your MCP clien
 
 **That's it!** You do not need to run any `uvx` commands manually. Your MCP client will automatically use `uvx` to launch the necessary servers in the background when a tool is called and manage them for you.
 
-### Option 2: Manual Setup with HTTP
+### Option 3: Manual Setup with HTTP
 
 This method is for advanced users who prefer to run each server as a persistent, long-running process.
 

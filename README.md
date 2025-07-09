@@ -52,8 +52,6 @@ Here is a video demo of Holy-Bio-MCP, this time including synergistic genetic in
 
 This framework unites the following specialized MCP servers and integration tools. Each is a powerful tool on its own, but together they form a comprehensive research platform.
 
-### Integration Tools
-- **[biostratum-eliza](./biostratum-eliza)**: An ElizaOS plugin that enables autonomous AI agents to seamlessly connect to and utilize all the MCP servers below, providing a unified interface for building complex agentic workflows in bioinformatics research.
 
 ### MCP Servers
 - **[gget-mcp](https://github.com/longevity-genie/gget-mcp)**: A powerful bioinformatics toolkit for genomics queries and analysis, wrapping the popular `gget` library.
@@ -62,14 +60,17 @@ This framework unites the following specialized MCP servers and integration tool
 - **[biothings-mcp](https://github.com/longevity-genie/biothings-mcp)**: Access to BioThings.io APIs for comprehensive gene, variant, chemical, and taxonomic data.
 - **[pharmacology-mcp](https://github.com/antonkulaga/pharmacology-mcp)**: Access to the Guide to PHARMACOLOGY database for drug, target, and ligand information.
 
-After the hackathon we also added:
+After the hackathon we extended the MCP servers list with:
 
-- **[futurehouse-mcp](https://github.com/winternewt/futurehouse_mcp) to use future-house prediction models
-- **[addgene-mcp](https://github.com/longevity-genie/addgene-mcp) to search plasmids (note: alpha stage)
-- **[boltz-mcp](https://github.com/longevity-genie/boltz-mcp) to run Boltz structure predictions (note: alpha stage)
-- **[benchling-mcp](https://github.com/longevity-genie/benchling-mcp) to interact with 
+- **[futurehouse-mcp](https://github.com/winternewt/futurehouse_mcp)** to use future-house prediction models
+- **[addgene-mcp](https://github.com/longevity-genie/addgene-mcp)** to search plasmids (note: alpha stage)
+- **[boltz-mcp](https://github.com/longevity-genie/boltz-mcp)** to run Boltz structure predictions (note: alpha stage)
+- **[benchling-mcp](https://github.com/longevity-genie/benchling-mcp)** to interact with 
 Bencling API (note: alpha stage)
-- and many others
+- and some others
+
+### Integration Tools
+- **[biostratum-eliza](./biostratum-eliza)**: An ElizaOS plugin that enables autonomous AI agents to seamlessly connect to and utilize all the MCP servers below, providing a unified interface for building complex agentic workflows in bioinformatics research.
 
 ## Server Capabilities & Example Questions
 

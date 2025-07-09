@@ -36,6 +36,16 @@ Here's a real conversation (that you can easily reproduce yourself as all MCP-es
   <img src="images/real_example_of_usage.jpg" alt="Real Example of Holy Bio MCP Usage"/>
 </div>
 
+### 🎬 Video Demo
+
+Here is a video demo of Holy-Bio-MCP, this time including synergistic genetic interventions and small molecules:
+
+<div align="center">
+  <a href="https://youtu.be/U9U06-YuuIg?si=xKhjQg-UzG7Sa3Rg">
+    <img src="images/holy_mcp_thubnail.jpg" alt="Holy Bio MCP Demo Video" width="600"/>
+  </a>
+</div>
+
 ---
 
 ## 🛠️ Included MCP Servers & Integration Tools
@@ -51,6 +61,15 @@ This framework unites the following specialized MCP servers and integration tool
 - **[synergy-age-mcp](https://github.com/longevity-genie/synergy-age-mcp)**: A database of synergistic and antagonistic genetic interactions in longevity from SynergyAge.
 - **[biothings-mcp](https://github.com/longevity-genie/biothings-mcp)**: Access to BioThings.io APIs for comprehensive gene, variant, chemical, and taxonomic data.
 - **[pharmacology-mcp](https://github.com/antonkulaga/pharmacology-mcp)**: Access to the Guide to PHARMACOLOGY database for drug, target, and ligand information.
+
+After the hackathon we also added:
+
+- **[futurehouse-mcp](https://github.com/winternewt/futurehouse_mcp) to use future-house prediction models
+- **[addgene-mcp](https://github.com/longevity-genie/addgene-mcp) to search plasmids (note: alpha stage)
+- **[boltz-mcp](https://github.com/longevity-genie/boltz-mcp) to run Boltz structure predictions (note: alpha stage)
+- **[benchling-mcp](https://github.com/longevity-genie/benchling-mcp) to interact with 
+Bencling API (note: alpha stage)
+- and many others
 
 ## Server Capabilities & Example Questions
 
@@ -143,31 +162,32 @@ For immediate use without cloning this repository, copy and paste this configura
   "mcpServers": {
     "biothings-mcp": {
       "command": "uvx",
-      "args": ["--from", "biothings-mcp", "stdio"],
-      "env": {}
+      "args": ["--from", "biothings-mcp", "stdio"]
     },
     "gget-mcp": {
       "command": "uvx",
-      "args": ["gget-mcp", "stdio"],
-      "env": {}
+      "args": ["gget-mcp", "stdio"]
     },
     "synergy-age-mcp": {
       "command": "uvx",
-      "args": ["synergy-age-mcp", "stdio"],
-      "env": {}
+      "args": ["synergy-age-mcp"],
+      "env": {
+        "MCP_TRANSPORT": "stdio"
+      }
     },
     "opengenes-mcp": {
       "command": "uvx",
-      "args": ["opengenes-mcp", "stdio"],
-      "env": {}
+      "args": ["opengenes-mcp"],
+      "env": {
+        "MCP_TRANSPORT": "stdio"
+      }
     },
     "pharmacology-mcp": {
       "command": "uvx",
-      "args": ["pharmacology-mcp", "stdio"],
-      "env": {}
+      "args": ["--from", "pharmacology-mcp", "stdio"]
     }
   }
-}
+} 
 ```
 
 ### Option 2: Automatic Setup with STDIO (Using Repository Files)
@@ -181,23 +201,6 @@ This method uses the configuration files from this repository.
 2.  **Configure Your Client**: Point your MCP-compatible client (e.g., Cursor, Claude Desktop) to use the `mcp-config-stdio.json` file from this repository.
 
 **That's it!** You do not need to run any `uvx` commands manually. Your MCP client will automatically use `uvx` to launch the necessary servers in the background when a tool is called and manage them for you.
-
-### Option 3: Manual Setup with HTTP
-
-This method is for advanced users who prefer to run each server as a persistent, long-running process.
-
-1.  **Prerequisite**: Install `uv` as shown above.
-2.  **Start Servers Manually**: For each server you want to use, open a separate terminal and run its `uvx` command with the `server` argument. The `mcp-config-http.json` file lists the required command and port for each server. For example:
-    ```bash
-    # Terminal 1
-    uvx biothings-mcp server --port 3001
-
-    # Terminal 2
-    uvx gget-mcp server --port 3002
-    
-    # ...and so on for other servers.
-    ```
-3.  **Configure Your Client**: Point your MCP client to use the `mcp-config-http.json` file.
 
 ---
 ### Configuration Video Tutorial

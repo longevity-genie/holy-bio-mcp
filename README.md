@@ -48,6 +48,8 @@ Here is a video demo of Holy-Bio-MCP, this time including synergistic genetic in
 
 ---
 
+We also made a [video on how to configure the Holy-Bio-MCP servers in your code editor](https://www.youtube.com/watch?v=HBwJQybjOa8). We used Cursor as example, but it will be very similar in MCP-clients (Anthropic Desktop, Windsurf, etc) as well.
+
 ## 🛠️ Included MCP Servers & Integration Tools
 
 This framework unites the following specialized MCP servers and integration tools. Each is a powerful tool on its own, but together they form a comprehensive research platform.

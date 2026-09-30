@@ -69,6 +69,7 @@ After the hackathon we extended the MCP servers list with:
 - **[boltz-mcp](https://github.com/longevity-genie/boltz-mcp)** to run Boltz structure predictions (note: alpha stage)
 - **[benchling-mcp](https://github.com/longevity-genie/benchling-mcp)** to interact with 
 Bencling API (note: alpha stage)
+- **[dog-geroscience-mcp](https://github.com/w0lph/k9/tree/main/mcp)** for aging research in companion dogs: HAGR dog rows, dog orthologs of aging genes, FDA dose translation, Dog Aging Project codebooks, FDA FOI summaries with quote-grounded PK and safety data, and an intervention dossier (downloads its database on first run)
 - and some others
 
 ### Integration Tools
@@ -152,6 +153,19 @@ A comprehensive, queryable resource for pharmacological data.
 - "Search for all targets in the 'Voltage-gated ion channel' family."
 </details>
 
+<details>
+<summary><h3>6. 🐕 <code>dog-geroscience-mcp</code>: Aging Research in Companion Dogs</h3></summary>
+
+Dog-specific aging tools that complement the human- and model-organism-centric servers above: the dog rows of AnAge, DrugAge and GenAge, dog orthologs of aging genes (Ensembl Compara), FDA Km-based dose translation between species, the Dog Aging Project's public survey codebooks, BM25 search over 3,500+ canine aging papers, FDA Center for Veterinary Medicine FOI summaries for 497 dog products with quote-grounded pharmacokinetic and target-animal-safety data, and an `intervention_dossier` tool that composes them. The server downloads its prebuilt database from the Hugging Face Hub on first run.
+
+**Example Research Questions:**
+- "What is known about rapamycin in dogs, and what would a dog-equivalent dose of the ITP mouse regimen be?"
+- "Which dog products contain selegiline, and what did the FDA target-animal-safety study find at 3X and 5X the dose?"
+- "Does the dog have a one-to-one ortholog of *MTOR*, and what is the sequence identity?"
+- "Which Dog Aging Project survey variables capture cognitive decline?"
+- "Build an evidence dossier for metformin in dogs: DrugAge across species, dog trials in the literature, openFDA adverse events, FDA FOI summaries."
+</details>
+
 ## 🚀 Getting Started: Unified Configuration
 
 This repository provides unified configuration files that enable all the included servers at once. Here's how to get started:
@@ -188,6 +202,10 @@ For immediate use without cloning this repository, copy and paste this configura
     "pharmacology-mcp": {
       "command": "uvx",
       "args": ["--from", "pharmacology-mcp", "stdio"]
+    },
+    "dog-geroscience-mcp": {
+      "command": "uvx",
+      "args": ["dog-geroscience-mcp"]
     }
   }
 } 

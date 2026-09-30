@@ -26,6 +26,10 @@
     "pharmacology-mcp": {
       "command": "uvx",
       "args": ["--from", "pharmacology-mcp", "stdio"]
+    },
+    "dog-geroscience-mcp": {
+      "command": "uvx",
+      "args": ["dog-geroscience-mcp"]
     }
   }
 } 
